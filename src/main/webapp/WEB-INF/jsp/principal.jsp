@@ -11,23 +11,23 @@
 
 <nav class="navbar navbar-expand-lg fixed-top bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="principal.jsp">Biblioteca</a>
+        <a class="navbar-brand" href="/bib/usuario/principal/">Biblioteca</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="livros/">Livros</a>
+                    <a class="nav-link" aria-current="page" href="/bib/principal/livros/">Livros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="reservas/">Reservas</a>
+                    <a class="nav-link" href="/bib/principal/livros/">Reservas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="clientes/">Clientes</a>
+                    <a class="nav-link" href="/bib/principal/livros/">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a  class="nav-link" href="/bib/">Sair</a>
+                    <a  class="nav-link" href="/bib/usuario/logarusuario">Sair</a>
                 </li>
             </ul>
         </div>
@@ -52,7 +52,7 @@
                             <div class="col-sm-4 mb-3 mb-sm-0">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="reservas/" class="btn btn-info">Reservas</a>
+                                        <a href="/bib/principal/livros/" class="btn btn-info">Reservas</a>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <a href="clientes/" class="btn btn-info">Clientes</a>
+                                        <a href="/bib/principal/livros/" class="btn btn-info">Clientes</a>
                                     </div>
                                 </div>
                             </div>

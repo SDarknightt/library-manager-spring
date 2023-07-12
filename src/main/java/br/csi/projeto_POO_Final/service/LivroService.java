@@ -1,30 +1,35 @@
+
 package br.csi.projeto_POO_Final.service;
 
+import br.csi.projeto_POO_Final.dao.LivroDAO;
 import br.csi.projeto_POO_Final.model.Livro;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-
-@Service
 public class LivroService {
 
-    public static ArrayList<Livro> livros = new ArrayList<>();
-
-    public LivroService(){
-        livros.add(new Livro("XD321","JAVA","Alencar"));
-        livros.add(new Livro("654","PHP","Alencar"));
-        livros.add(new Livro("34","DOT","Alencar"));
-        livros.add(new Livro("789","Angular","Alencar"));
+    /*---------> Cadastrar Livro<---------*/
+    public boolean cadastrarLivro(Livro livro) {
+        LivroDAO livroDAO = new LivroDAO();
+        // Adicionar o livro no banco de dados
+        livroDAO.adicionarLivro(livro);
+        System.out.println("Livro cadastrado com sucesso: " + livro.getNome());
+        return true;
+    }
+    /*---------> Deletar Livro<---------*/
+    public boolean deletarLivro(Livro livro) {
+        LivroDAO livroDAO = new LivroDAO();
+        // Deleta o livro do banco de dados
+        livroDAO.deletarLivro(livro);
+        System.out.println("Livro delatado com sucesso: " + livro.getId());
+        return true;
     }
 
-    public ArrayList<Livro> getLivros(){
-
-        return livros;
-    }
-
-    public Livro save(Livro livro){
-        livros.add(livro);
-        return livro;
+    /*---------> Editar Livro<---------*/
+    public boolean editarLivro(Livro livro) {
+        LivroDAO livroDAO = new LivroDAO();
+        // Edita o livro do banco de dados
+        livroDAO.editarLivro(livro);
+        System.out.println("Livro editado com sucesso: " + livro.getNome());
+        return true;
     }
 
 }

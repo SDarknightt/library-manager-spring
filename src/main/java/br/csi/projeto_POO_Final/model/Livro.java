@@ -1,25 +1,26 @@
 package br.csi.projeto_POO_Final.model;
 
 public class Livro {
-
-    private String isbn;
+    private int id;
     private String nome;
-    private String autor;
-
-    public Livro(String isbn, String nome, String autor) {
-        this.isbn = isbn;
-        this.nome = nome;
-        this.autor = autor;
-    }
+    private String genero;
+    private Boolean retirado;
 
     public Livro(){}
 
-    public String getIsbn() {
-        return isbn;
+    public Livro(int id, String nome, String genero, Boolean retirado) {
+        this.id = id;
+        this.nome = nome;
+        this.genero = genero;
+        this.retirado = retirado;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -30,14 +31,20 @@ public class Livro {
         this.nome = nome;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
+    public Boolean getRetirado() {
+        return retirado;
+    }
 
-
+    public void setRetirado(Boolean retirado) {
+        this.retirado = retirado;
+    }
 }
+

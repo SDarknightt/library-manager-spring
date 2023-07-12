@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,27 +23,24 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Cadastrar Usuário</h2>
                             <p class="text-white-50 mb-5">Por favor insira seus dados!</p>
 
-                            <form method="POST" action="usuariocontroller">
-                                <div class="form-outline form-white mb-4">
-                                    <input type="text" name="nomeusuario" id="nome" class="form-control form-control-lg" placeholder="Nome" required>
-                                </div>
 
-                                <div class="form-outline form-white mb-4">
-                                    <input type="text" id="cpf" name="cpfusuario" class="form-control form-control-lg" placeholder="CPF"/>
-                                </div>
-                                <div class="form-outline form-white mb-4">
-                                    <input type="text" id="login" name="login" class="form-control form-control-lg" placeholder="Login"/>
-                                </div>
-                                <div class="form-outline form-white mb-4">
-                                    <input type="password" id="senha" name="senha" class="form-control form-control-lg" placeholder="Senha"/>
-                                </div>
-                                <input type="hidden" name="acao" value="cadastrarusuario">
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Cadastrar</button>
-                                <div>
-                                    <a href="/bib/" class="text-white-50 fw-bold">Voltar</a>
-                                </div>
-                            </form>
+                            <c:url var="registra" value="/usuario/cadastrarusuario"/>
+                            <form:form action="${registra}" method="post" modelAttribute="usuario">
 
+                                <form:input type="text" path="nome" placeholder="Nome"/> <br><br>
+
+                                <form:input type="text" path="cpf" placeholder="CPF"/> <br><br>
+
+                                <form:input type="text" path="login" placeholder="Login"/> <br><br>
+
+                                <form:input type="password" path="senha"  placeholder="Senha"/> <br><br>
+
+                                <input  class="btn btn-outline-light btn-lg px-5" type="submit" value="Cadastrar">
+
+                            </form:form>
+                            <div>
+                                <a href="/bib/usuario/logarusuario" class="text-white-50 fw-bold">Voltar</a>
+                            </div>
                         </div>
                     </div>
                 </div>

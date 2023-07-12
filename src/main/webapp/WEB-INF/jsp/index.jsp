@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,26 +23,19 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                             <p class="text-white-50 mb-5">Por favor insira seu login e senha!</p>
 
-                            <form method="POST" action="principal/">
-                                <div class="form-outline form-white mb-4">
-                                    <input type="text" name="login" class="form-control form-control-lg" placeholder="Login" required>
-                                </div>
+                            <c:url var="login" value="/usuario/logarusuario"/>
+                            <form:form action="${login}" method="post" modelAttribute="usuario">
 
-                                <div class="form-outline form-white mb-4">
-                                    <input type="password" name="senha" class="form-control form-control-lg" placeholder="Senha"/>
-                                </div>
-                                <input type="hidden" name="acao" value="fazerlogin">
+                                <form:input type="text" path="login" placeholder="Login"/> <br><br>
 
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Entrar</button>
+                                <form:input type="password" path="senha"  placeholder="Senha"/> <br><br>
+                                <input  class="btn btn-outline-light btn-lg px-5" type="submit" value="Entrar">
 
-                            </form>
+                            </form:form>
+                         </div>
 
-                        </div>
                         <div>
-                            <a href="principal/" class="text-white-50 fw-bold">123</a>
-                        </div>
-                        <div>
-                            <p class="mb-0">Não tem uma conta?<a href="registrar" class="text-white-50 fw-bold">Registre-se</a></p>
+                            <p class="mb-0">Não tem uma conta?<a href="cadastrarusuario" class="text-white-50 fw-bold">Registre-se</a></p>
                         </div>
 
                     </div>

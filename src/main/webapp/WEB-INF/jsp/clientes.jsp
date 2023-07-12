@@ -24,7 +24,7 @@
                     <a class="nav-link active" href="/bib/principal/clientes/">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a  class="nav-link" href="/bib/principal/">Voltar</a>
+                    <a  class="nav-link" href="/bib/usuario/principalprincipal/">Voltar</a>
                 </li>
             </ul>
         </div>
