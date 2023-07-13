@@ -1,10 +1,6 @@
 
 package br.csi.projeto_POO_Final.service;
 
-import br.csi.projeto_POO_Final.dao.LivroDAO;
-import br.csi.projeto_POO_Final.dao.ReservaDAO;
-import br.csi.projeto_POO_Final.model.Livro;
-import br.csi.projeto_POO_Final.model.Reserva;
 import br.csi.projeto_POO_Final.dao.ReservaDAO;
 import br.csi.projeto_POO_Final.model.Reserva;
 import br.csi.projeto_POO_Final.model.ReservaLivro;
@@ -29,11 +25,11 @@ public class ReservaService {
         return true;
     }
 
-    public boolean devolverLivro(Reserva reserva) {
+    public boolean devolverLivro(ReservaLivro reservaLivro) {
         ReservaDAO reservaDAO = new ReservaDAO();
-        // Adicionar a reserva no banco de dados
-        reservaDAO.cancelarReserva(reserva);
-        System.out.println("Reserva cancelada com sucesso: Livro -" + reserva.getLivroid() + "Cliente -" + reserva.getClienteid());
+        // Remove a reserva do banco de dados
+        reservaDAO.cancelarReserva(reservaLivro);
+        System.out.println("Reserva cancelada com sucesso: Reserva -" + reservaLivro.getIdreserva());
         return true;
     }
 

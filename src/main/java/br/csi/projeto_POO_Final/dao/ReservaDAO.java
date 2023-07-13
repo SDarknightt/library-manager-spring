@@ -29,20 +29,14 @@ public class ReservaDAO {
         }
     }
 
-    public void cancelarReserva(Reserva reserva) {
+    public void cancelarReserva(ReservaLivro reservaLivro) {
         try (Connection con = new ConectaDB().getConexao()) {
+            System.out.println( "ID RESERVA: "+reservaLivro.getIdreserva());
             //deleta a reserva
-            String sql = "DELETE FROM reserva_livro WHERE clienteid = ? AND livroid = ?;\n";
+            String sql = "DELETE FROM reserva_livro WHERE idreserva = ?;\n";
             PreparedStatement pt = con.prepareStatement(sql);
-            pt.setInt(1, reserva.getClienteid());
-            pt.setInt(2, reserva.getLivroid());
+            pt.setInt(1, reservaLivro.getIdreserva());
             pt.executeUpdate();
-
-            //libera o livro
-            String sql2 = "UPDATE livro SET reservado = false WHERE idlivro = ?;";
-            PreparedStatement pt2 = con.prepareStatement(sql2);
-            pt2.setInt(1, reserva.getLivroid());
-            pt2.executeUpdate();
 
         } catch (Exception e) {
             e.printStackTrace();

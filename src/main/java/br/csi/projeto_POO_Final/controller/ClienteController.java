@@ -1,9 +1,7 @@
 package br.csi.projeto_POO_Final.controller;
 
 import br.csi.projeto_POO_Final.model.Cliente;
-import br.csi.projeto_POO_Final.model.Usuario;
 import br.csi.projeto_POO_Final.service.ClienteService;
-import br.csi.projeto_POO_Final.service.UsuarioService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,9 +35,21 @@ public class ClienteController {
 
     @GetMapping("/visualizarclientes")
     public String visualizarClientes(Model model) {
+
+        model.addAttribute("cliente", new Cliente());
+
         List<Cliente> clientes = new ClienteService().obterClientes(); // Recupera a lista de clientes existentes
         model.addAttribute("clientes", clientes); // Adiciona a lista de clientes ao modelo
         return "visualizarclientes";
+    }
+
+    @PostMapping("/deletarcliente")
+    public RedirectView deletarCliente (@ModelAttribute("cliente") Cliente cliente, RedirectAttributes redirectAttributes){
+        RedirectView redirectView = null;
+        if (new ClienteService().deletarCliente(cliente)){
+            redirectView = new RedirectView("/principal/clientes/visualizarclientes", true);
+        }
+        return redirectView;
     }
 
 }

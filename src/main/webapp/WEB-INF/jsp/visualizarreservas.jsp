@@ -55,18 +55,19 @@
             <td>${reserva.getNomecliente()}</td>
             <td>${reserva.getNomelivro()}</td>
             <td>
-              <form method="POST" action="reservacontroller">
-                <input type="hidden" name="idcliente" value="${reserva.getClienteid()}" />
-                <input type="hidden" name="idlivro" value="${reserva.getLivroid()}" />
-                <input type="hidden" name="acao" value="devolverlivro" />
-                <button type="submit" class="btn btn-secondary devolver-button">Devolver</button>
+              <form method="POST" action="/bib/principal/reservas/deletarreserva">
+                <div class="form-group">
+                  <input type="hidden" name="idreserva" class="form-control" value="${reserva.getIdreserva()}">
+                </div>
+                <button class="btn btn-outline-danger btn-md" type="submit">Deletar</button>
               </form>
             </td>
             <td>
-              <form method="POST" action="reservacontroller">
-                <input type="hidden" name="idreserva" value="${reserva.getIdreserva()}"/>
-                <input type="hidden" name="acao" value="selecionareserva"/>
-                <button type="submit" class="btn btn-info devolver-button">Editar</button>
+              <form method="POST" action="/bib/principal/reservas/deletarreserva">
+                <div class="form-group">
+                  <input type="hidden" name="idreserva" class="form-control" value="${reserva.getIdreserva()}">
+                </div>
+                <button class="btn btn-outline-info btn-md" type="submit">Editar</button>
               </form>
             </td>
           </tr>

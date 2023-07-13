@@ -23,7 +23,7 @@ public class ReservaController {
     public RedirectView reservarLivro (@ModelAttribute("reserva") Reserva reserva, RedirectAttributes redirectAttributes){
         RedirectView redirectView = null;
         if (new ReservaService().cadastrarReserva(reserva)){
-           redirectView = new RedirectView("visualizarreservas", true);
+            redirectView = new RedirectView("visualizarreservas", true);
         }
 
         return redirectView;
@@ -31,27 +31,31 @@ public class ReservaController {
 
     @GetMapping("/reservarlivro")
     public String visualizarDados(Model model) {
-
         List<Cliente> clientes = new ClienteService().obterClientes();
-
         List<Livro> livros = new LivroService().obterLivros();
-
         model.addAttribute("livros", livros);
-
         model.addAttribute("clientes", clientes);
-
         model.addAttribute("reserva", new Reserva());
 
         return "reservarlivro";
     }
 
-
-
     @GetMapping("/visualizarreservas")
     public String visualizarReservas(Model model) {
+        model.addAttribute("reserva", new ReservaLivro());
         List<ReservaLivro> reserva = new ReservaService().obterReservas(); // Recupera a lista de clientes existentes
         model.addAttribute("reservas", reserva); // Adiciona a lista de clientes ao modelo
+
         return "visualizarreservas";
+    }
+
+    @PostMapping("/deletarreserva")
+    public RedirectView deletarreserva (@ModelAttribute("reserva") ReservaLivro reservaLivro, RedirectAttributes redirectAttributes){
+        RedirectView redirectView = null;
+        if (new ReservaService().devolverLivro(reservaLivro)){
+            redirectView = new RedirectView("/principal/reservas/visualizarreservas", true);
+        }
+        return redirectView;
     }
 
 }

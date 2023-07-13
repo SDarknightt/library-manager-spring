@@ -33,14 +33,12 @@
                   <input  class="btn btn-outline-light btn-lg px-5" type="submit" value="Cadastrar">
 
                 </form:form>
-
                 <div>
                   <a href="/bib/principal/clientes/" class="text-white-50 fw-bold">Voltar</a>
                 </div>
               </form>
 
             </div>
-
           </div>
         </div>
       </div>

@@ -57,16 +57,19 @@
                         <td>${livro.getNome()}</td>
                         <td>${livro.getGenero()}</td>
                         <td>
-                            <form:form method="POST" action="/livros/deletarlivro" modelAttribute="livro">
-                                <input type="hidden" name="id" value="${livro.id}" />
-                                <input class="btn btn-danger devolver-button" type="submit" value="Deletar">
-                            </form:form>
+                            <form method="POST" action="/bib/principal/livros/deletarlivro">
+                                <div class="form-group">
+                                    <input type="hidden" name="id" class="form-control" value="${livro.getId()}">
+                                </div>
+                                <button class="btn btn-outline-danger btn-md" type="submit">Deletar</button>
+                            </form>
                         </td>
                         <td>
-                            <form method="POST" action="livrocontroller">
-                                <input type="hidden" name="idlivro" value="${livro.getId()}" />
-                                <input type="hidden" name="acao" value="selecionalivro" />
-                                <button type="submit" class="btn btn-info devolver-button">Editar</button>
+                            <form method="POST" action="/bib/principal/livros/deletarlivro">
+                                <div class="form-group">
+                                    <input type="hidden" name="id" class="form-control" value="${livro.getId()}">
+                                </div>
+                                <button class="btn btn-outline-info btn-md" type="submit">Editar</button>
                             </form>
                         </td>
                     </tr>

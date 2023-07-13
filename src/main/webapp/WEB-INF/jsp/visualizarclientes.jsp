@@ -55,17 +55,19 @@
             <td>${cliente.getNome()}</td>
             <td>${cliente.getCpf()}</td>
             <td>
-              <form method="POST" action="clientecontroller">
-                <input type="hidden" name="idcliente" value="${cliente.getId()}" />
-                <input type="hidden" name="acao" value="deletarcliente" />
-                <button type="submit" class="btn btn-danger devolver-button">Deletar</button>
+              <form method="POST" action="/bib/principal/clientes/deletarcliente">
+                <div class="form-group">
+                  <input type="hidden" name="id" class="form-control" value="${cliente.getId()}">
+                </div>
+                <button class="btn btn-outline-danger btn-md" type="submit">Deletar</button>
               </form>
             </td>
             <td>
-              <form method="POST" action="clientecontroller">
-                <input type="hidden" name="idcliente" value="${cliente.getId()}" />
-                <input type="hidden" name="acao" value="selecionacliente" />
-                <button type="submit" class="btn btn-info devolver-button">Editar</button>
+              <form method="POST" action="/bib/principal/clientes/deletarcliente">
+                <div class="form-group">
+                  <input type="hidden" name="id" class="form-control" value="${cliente.getId()}">
+                </div>
+                <button class="btn btn-outline-info btn-md" type="submit">Editar</button>
               </form>
             </td>
           </tr>

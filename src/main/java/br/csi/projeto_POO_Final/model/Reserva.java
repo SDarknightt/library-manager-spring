@@ -19,7 +19,7 @@ public class Reserva {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int idreserva) {
         this.id = id;
     }
 
