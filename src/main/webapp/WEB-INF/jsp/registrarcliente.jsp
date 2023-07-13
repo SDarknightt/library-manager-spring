@@ -8,7 +8,6 @@
   <title>Login</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -23,16 +22,18 @@
               <h2 class="fw-bold mb-2 text-uppercase">Cadastrar Cliente</h2>
               <p class="text-white-50 mb-5">Por favor insira os dados!</p>
 
-                <c:url var="registra" value="/clientes/registrarclientes"/>
-                <form:form action="${registra}" method="post" modelAttribute="cliente">
+              <form method="POST" action="/bib/principal/clientes/registrarcliente">
+                <div class="form-outline form-white mb-4">
+                  <input type="text" name="nome" class="form-control form-control-lg" placeholder="Nome" required>
+                </div>
 
-                  <form:input type="text" path="nome" placeholder="Nome"/> <br><br>
+                <div class="form-outline form-white mb-4">
+                  <input type="text" name="cpf" class="form-control form-control-lg" placeholder="CPF"/>
+                </div>
 
-                  <form:input type="text" path="cpf" placeholder="CPF"/> <br><br>
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">Cadastrar</button>
+              </form>
 
-                  <input  class="btn btn-outline-light btn-lg px-5" type="submit" value="Cadastrar">
-
-                </form:form>
                 <div>
                   <a href="/bib/principal/clientes/" class="text-white-50 fw-bold">Voltar</a>
                 </div>

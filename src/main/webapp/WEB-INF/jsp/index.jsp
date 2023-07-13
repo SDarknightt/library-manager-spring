@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +9,6 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -23,16 +23,19 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                             <p class="text-white-50 mb-5">Por favor insira seu login e senha!</p>
 
-                            <c:url var="login" value="/usuario/logarusuario"/>
-                            <form:form action="${login}" method="post" modelAttribute="usuario">
+                            <form method="POST" action="/bib/usuario/logarusuario">
+                                <div class="form-outline form-white mb-4">
+                                    <input type="text" name="login" class="form-control form-control-lg" placeholder="Login" required>
+                                </div>
 
-                                <form:input type="text" path="login" placeholder="Login"/> <br><br>
+                                <div class="form-outline form-white mb-4">
+                                    <input type="password" name="senha" class="form-control form-control-lg" placeholder="Senha"/>
+                                </div>
 
-                                <form:input type="password" path="senha"  placeholder="Senha"/> <br><br>
-                                <input  class="btn btn-outline-light btn-lg px-5" type="submit" value="Entrar">
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Entrar</button>
+                            </form>
 
-                            </form:form>
-                         </div>
+                        </div>
 
                         <div>
                             <p class="mb-0">Não tem uma conta?<a href="cadastrarusuario" class="text-white-50 fw-bold">Registre-se</a></p>

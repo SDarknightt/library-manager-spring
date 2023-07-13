@@ -1,10 +1,55 @@
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
+body {
+    background-color: #faf8f8;
+}
+.titulo{
+    color: #ffffff;
+}
+.options-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
-td, th {
+.option {
+    width: 200px;
+    height: 200px;
+    background-color: #ffffff;
     border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+    transition: background-color 0.3s ease;
 }
+
+.option a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.option:hover {
+    background-color: #f2f2f2;
+}
+
+.option:hover a {
+    color: #3e3885;
+}
+
+.active{
+    color: #ffffff;
+}
+
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #1e4256;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(128, 128, 128), rgb(46, 58, 80));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(128, 128, 128), rgb(46, 58, 80))
+}
+

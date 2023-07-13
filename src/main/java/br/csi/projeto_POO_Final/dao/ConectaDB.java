@@ -13,7 +13,6 @@ public class ConectaDB {
     public static void main(String[] args) {
         new ConectaDB().getConexao();
         System.out.println("Conexão executada com sucesso!");
-
     }
 
 

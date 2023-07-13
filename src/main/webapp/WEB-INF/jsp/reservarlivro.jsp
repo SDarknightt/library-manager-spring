@@ -10,7 +10,6 @@
   <title>Login</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -22,7 +21,7 @@
           <div class="card-body p-5 text-center">
 
             <div class="mb-md-5 mt-md-4 pb-5">
-              <h2 class="fw-bold mb-2 text-uppercase">Cadastrar Livro</h2>
+              <h2 class="fw-bold mb-2 text-uppercase">Reservar Livro</h2>
               <p class="text-white-50 mb-5">Por favor insira os dados!</p>
 
 
@@ -31,7 +30,7 @@
                         <div class="form-group">
                             <label for="cliente">Cliente</label>
                             <select id="cliente" name="clienteid" class="form-control">
-                                <option value="">Selecione um cliente</option>
+                                <option disabled selected>Selecione um cliente</option>
                                 <c:forEach items="${clientes}" var="cliente">
                                     <option value="${cliente.getId()}">${cliente.getNome()}</option>
                                 </c:forEach>
@@ -43,7 +42,7 @@
                         <div class="form-group">
                             <label for="livro">Livro</label>
                             <select id="livro" name="livroid" class="form-control">
-                                <option value="">Selecione um livro</option>
+                                <option disabled selected>Selecione um livro</option>
                                 <c:forEach items="${livros}" var="livro">
                                     <option value="${livro.getId()}">${livro.getNome()}</option>
                                 </c:forEach>

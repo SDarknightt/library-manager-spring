@@ -8,7 +8,6 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -24,22 +23,30 @@
                             <p class="text-white-50 mb-5">Por favor insira os dados!</p>
 
 
-                                <c:url var="registra" value="/livros/registrarlivro"/>
-                                <form:form action="${registra}" method="post" modelAttribute="livro">
+                            <form method="POST" action="/bib/principal/livros/registrarlivro">
+                                <div class="form-outline form-white mb-4">
+                                    <input type="text" name="nome" class="form-control form-control-lg" placeholder="Nome" required>
+                                </div>
 
-                                    <form:input type="text" path="nome" placeholder="Nome"/> <br><br>
+                                <div class="form-group">
+                                    <label for="livro">Livro</label>
+                                    <select id="livro" name="genero" class="form-control">
+                                                <option disabled selected>Selecione um livro</option>
+                                            <option disabled selected>Seleciona um gênero.</option>
+                                            <option value="Ação">Ação</option>
+                                            <option value="Aventura">Aventura</option>
+                                            <option value="Romance">Romance</option>
+                                            <option value="Ficção Científica">Ficção Científica</option>
+                                            <option value="Mistério">Mistério</option>
+                                            <option value="Fantasia">Fantasia</option>
+                                            <option value="Suspense">Suspense</option>
+                                    </select>
+                                </div>
 
-                                    <form:select path="genero">
-                                        <form:option value="" label="Selecione um gênero"/>
-                                        <form:option value="Ficção" label="Ficção"/>
-                                        <form:option value="Romance" label="Romance"/>
-                                        <form:option value="Suspense" label="Suspense"/>
-                                        <form:option value="Aventura" label="Aventura"/>
-                                    </form:select> <br><br>
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Cadastrar</button>
+                            </form>
 
-                                    <input class="btn btn-outline-light btn-lg px-5" type="submit" value="Cadastrar">
-
-                                </form:form>
+                            </form>
 
                                 <div>
                                     <a href="/bib/principal/livros/" class="text-white-50 fw-bold">Voltar</a>
