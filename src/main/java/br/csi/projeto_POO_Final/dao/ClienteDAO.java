@@ -15,7 +15,7 @@ public class ClienteDAO {//aqui será feito o CRUD
         try(Connection con = new ConectaDB().getConexao()){
 
             String sql = "SELECT * " +
-                    "FROM cliente ORDER BY idcliente";
+                    "FROM cliente ORDER BY nomecliente";
 
             PreparedStatement pt = con.prepareStatement(sql);
             //pt.setString(1, login);

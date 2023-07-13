@@ -1,7 +1,5 @@
 package br.csi.projeto_POO_Final.controller;
 
-
-import br.csi.projeto_POO_Final.dao.UsuarioDAO;
 import br.csi.projeto_POO_Final.model.Usuario;
 import br.csi.projeto_POO_Final.service.LoginService;
 import br.csi.projeto_POO_Final.service.UsuarioService;
@@ -62,5 +60,4 @@ public class UsuarioController {
         }
         return redirectView;
     }
-
 }

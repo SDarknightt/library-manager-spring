@@ -40,7 +40,6 @@ public class LivroController {
     @PostMapping("/deletarlivro")
     public RedirectView deletarLivro (@ModelAttribute("livro") Livro livro, RedirectAttributes redirectAttributes){
         RedirectView redirectView = null;
-
         if (new LivroService().deletarLivro(livro)){
             redirectView = new RedirectView("/principal/livros/visualizarlivros", true);
         }

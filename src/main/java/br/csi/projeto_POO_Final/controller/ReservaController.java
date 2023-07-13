@@ -20,31 +20,31 @@ import java.util.List;
 public class ReservaController {
 
     @PostMapping("/reservarlivro")
-    public RedirectView reservarLivro (@RequestParam("idcliente") Long idCliente, @RequestParam("idlivro") Long idLivro, RedirectAttributes redirectAttributes){
+    public RedirectView reservarLivro (@ModelAttribute("reserva") Reserva reserva, RedirectAttributes redirectAttributes){
         RedirectView redirectView = null;
-        System.out.println("Entrou no RESERVAR LIVRO!!!!!");
-        if (new ReservaService().cadastrarReserva()){
-            redirectView = new RedirectView("visualizarclientes", true);
+        if (new ReservaService().cadastrarReserva(reserva)){
+           redirectView = new RedirectView("visualizarreservas", true);
         }
-        redirectView = new RedirectView("visualizarreservas", true);
 
         return redirectView;
     }
 
-
     @GetMapping("/reservarlivro")
     public String visualizarDados(Model model) {
-        ClienteService clienteService = new ClienteService();
-        LivroService livroService = new LivroService();
-        List<Livro> livros = livroService.obterLivros();
-        List<Cliente> clientes = clienteService.obterClientes();
+
+        List<Cliente> clientes = new ClienteService().obterClientes();
+
+        List<Livro> livros = new LivroService().obterLivros();
+
+        model.addAttribute("livros", livros);
 
         model.addAttribute("clientes", clientes);
+
         model.addAttribute("reserva", new Reserva());
-        model.addAttribute("livros", livros);
 
         return "reservarlivro";
     }
+
 
 
     @GetMapping("/visualizarreservas")

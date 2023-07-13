@@ -56,7 +56,7 @@ public class ReservaDAO {
             String sql = "SELECT reserva_livro.idreserva, cliente.idcliente, cliente.nomecliente, livro.idlivro, livro.nomelivro " +
                     "FROM livro, cliente, reserva_livro " +
                     "WHERE cliente.idcliente = reserva_livro.clienteid " +
-                    "AND livro.idlivro = reserva_livro.livroid ORDER BY cliente.idcliente";
+                    "AND livro.idlivro = reserva_livro.livroid ORDER BY cliente.nomecliente";
 
             PreparedStatement pt = con.prepareStatement(sql);
             System.out.println("sql: "+pt.toString());

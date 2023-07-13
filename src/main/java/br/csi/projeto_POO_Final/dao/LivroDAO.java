@@ -58,7 +58,7 @@ public class LivroDAO {
         try(Connection con = new ConectaDB().getConexao()){
 
             String sql = "SELECT * " +
-                    "FROM livro ORDER BY idlivro";
+                    "FROM livro ORDER BY nomelivro";
 
             PreparedStatement pt = con.prepareStatement(sql);
             //pt.setString(1, login);
