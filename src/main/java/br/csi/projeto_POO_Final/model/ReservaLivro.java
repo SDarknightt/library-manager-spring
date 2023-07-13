@@ -2,12 +2,12 @@ package br.csi.projeto_POO_Final.model;
 
 public class ReservaLivro {
 
-    private int idreserva;
-    private int clienteid;
-    private String nomecliente;
-    private int livroid;
-    private String nomelivro;
 
+    private int clienteid;
+    private int livroid;
+    private String nomecliente;
+    private String nomelivro;
+    private int idreserva;
     public ReservaLivro(int clienteid, String nomecliente, int livroid, String nomelivro) {
         this.clienteid = clienteid;
         this.nomecliente = nomecliente;

@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,34 +23,28 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Cadastrar Livro</h2>
                             <p class="text-white-50 mb-5">Por favor insira os dados!</p>
 
-                            <form method="POST" action="livrocontroller">
-                                <div class="form-outline form-white mb-4">
-                                    <input type="text" name="nomelivro" class="form-control form-control-lg" placeholder="Nome" required>
-                                </div>
 
-                                <div class="form-outline form-white mb-4">
-                                    <div class="form-group">
-                                        <select id="genero" name="generolivro" class="form-control" required>
-                                            <option value="">Selecione um Gênero</option>
-                                            <option value="Ação">Ação</option>
-                                            <option value="Terror">Terror</option>
-                                            <option value="Ficção">Ficção</option>
+                                <c:url var="registra" value="/livros/registrarlivro"/>
+                                <form:form action="${registra}" method="post" modelAttribute="livro">
 
-                                        </select>
-                                    </div>
-                                </div>
+                                    <form:input type="text" path="nome" placeholder="Nome"/> <br><br>
 
+                                    <form:select path="genero">
+                                        <form:option value="" label="Selecione um gênero"/>
+                                        <form:option value="Ficção" label="Ficção"/>
+                                        <form:option value="Romance" label="Romance"/>
+                                        <form:option value="Suspense" label="Suspense"/>
+                                        <form:option value="Aventura" label="Aventura"/>
+                                    </form:select> <br><br>
 
+                                    <input class="btn btn-outline-light btn-lg px-5" type="submit" value="Cadastrar">
 
-                                <input type="hidden" name="acao" value="cadastrarlivro">
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Cadastrar</button>
+                                </form:form>
+
                                 <div>
                                     <a href="/bib/principal/livros/" class="text-white-50 fw-bold">Voltar</a>
                                 </div>
-                            </form>
-
                         </div>
-
                     </div>
                 </div>
             </div>

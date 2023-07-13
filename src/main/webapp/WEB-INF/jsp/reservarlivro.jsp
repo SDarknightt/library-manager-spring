@@ -24,38 +24,31 @@
               <h2 class="fw-bold mb-2 text-uppercase">Reservar Livro</h2>
               <p class="text-white-50 mb-5">Por favor insira os dados!</p>
 
-              <form method="POST" action="reservacontroller">
-
-                <c:if test="${not empty clientes}">
-                  <div class="form-group">
-                    <label for="cliente">Cliente</label>
-                    <select id="cliente" name="idcliente" class="form-control">
-                      <option value="">Selecione um cliente</option>
-                      <c:forEach items="${clientes}" var="cliente">
-                        <option value="${cliente.getId()}">${cliente.getNome()}</option>
-                      </c:forEach>
-                    </select>
-                  </div>
-                </c:if>
-
-                <c:if test="${not empty livros}">
-                  <div class="form-group">
-                    <label for="livro">Livro</label>
-                    <select id="livro" name="idlivro" class="form-control">
-                      <option value="">Selecione um livro</option>
-                      <c:forEach items="${livros}" var="livro">
-                        <option value="${livro.getId()}">${livro.getNome()}</option>
-                      </c:forEach>
-                    </select>
-                  </div>
-                </c:if>
-                <input type="hidden" name="acao" value="reservarlivro">
-
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Reservar</button>
-                <div>
-                  <a href="/bib/principal/reservas/" class="text-white-50 fw-bold">Voltar</a>
+              <c:if test="${not empty clientes}">
+                <div class="form-group">
+                  <label for="cliente">Cliente</label>
+                  <select id="cliente" name="idcliente" class="form-control">
+                    <option value="">Selecione um cliente</option>
+                    <c:forEach items="${clientes}" var="cliente">
+                      <option value="${cliente.getId()}">${cliente.getNome()}</option>
+                    </c:forEach>
+                  </select>
                 </div>
-              </form>
+              </c:if>
+
+              <c:if test="${not empty livros}">
+                <div class="form-group">
+                  <label for="livro">Livro</label>
+                  <select id="livro" name="idlivro" class="form-control">
+                    <option value="">Selecione um livro</option>
+                    <c:forEach items="${livros}" var="livro">
+                      <option value="${livro.getId()}">${livro.getNome()}</option>
+                    </c:forEach>
+                  </select>
+                </div>
+              </c:if>
+
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" onclick="reservarLivro()">Reservar</button>
 
             </div>
 
@@ -65,7 +58,14 @@
     </div>
   </div>
 </section>
-
+<script>
+  function reservarLivro() {
+    var idCliente = document.getElementById('cliente').value;
+    var idLivro = document.getElementById('livro').value;
+    var url = "/bib/principal/reservas/reservarlivro?idcliente=" + idCliente + "&idlivro=" + idLivro;
+    window.location.href = url;
+  }
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

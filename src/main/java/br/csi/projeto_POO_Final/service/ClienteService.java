@@ -6,6 +6,8 @@ import br.csi.projeto_POO_Final.model.Cliente;
 import br.csi.projeto_POO_Final.dao.ClienteDAO;
 import br.csi.projeto_POO_Final.model.Cliente;
 
+import java.util.List;
+
 public class ClienteService {
 
     /*---------> Cadastrar Cliente<---------*/
@@ -43,4 +45,9 @@ public class ClienteService {
         clienteDAO.editarCliente(cliente);
         System.out.println("Cliente editado com sucesso: " + cliente.getNome());
         return true;
-    }}
+    }
+    public List<Cliente> obterClientes() {
+        ClienteDAO clienteDAO = new ClienteDAO();
+        return clienteDAO.getClientes();
+    }
+}

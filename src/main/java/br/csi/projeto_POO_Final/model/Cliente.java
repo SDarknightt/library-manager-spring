@@ -1,9 +1,10 @@
 package br.csi.projeto_POO_Final.model;
 
 public class Cliente {
-    private int id;
     private String nome;
     private String cpf;
+    private int id;
+
     public Cliente() {}
 
     public Cliente(int id, String nome, String cpf) {

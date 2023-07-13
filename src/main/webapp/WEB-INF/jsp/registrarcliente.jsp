@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,16 +23,17 @@
               <h2 class="fw-bold mb-2 text-uppercase">Cadastrar Cliente</h2>
               <p class="text-white-50 mb-5">Por favor insira os dados!</p>
 
-              <form method="POST" action="clientecontroller">
-                <div class="form-outline form-white mb-4">
-                  <input type="text" name="nomecliente" class="form-control form-control-lg" placeholder="Nome" required>
-                </div>
+                <c:url var="registra" value="/clientes/registrarclientes"/>
+                <form:form action="${registra}" method="post" modelAttribute="cliente">
 
-                <div class="form-outline form-white mb-4">
-                  <input type="text" name="cpfcliente" class="form-control form-control-lg" placeholder="CPF"/>
-                </div>
-                <input type="hidden" name="acao" value="cadastrarcliente">
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Cadastrar</button>
+                  <form:input type="text" path="nome" placeholder="Nome"/> <br><br>
+
+                  <form:input type="text" path="cpf" placeholder="CPF"/> <br><br>
+
+                  <input  class="btn btn-outline-light btn-lg px-5" type="submit" value="Cadastrar">
+
+                </form:form>
+
                 <div>
                   <a href="/bib/principal/clientes/" class="text-white-50 fw-bold">Voltar</a>
                 </div>

@@ -57,11 +57,10 @@
                         <td>${livro.getNome()}</td>
                         <td>${livro.getGenero()}</td>
                         <td>
-                            <form method="POST" action="livrocontroller">
-                                <input type="hidden" name="idlivro" value="${livro.getId()}" />
-                                <input type="hidden" name="acao" value="deletarlivro" />
-                                <button type="submit" class="btn btn-danger devolver-button">Deletar</button>
-                            </form>
+                            <form:form method="POST" action="/livros/deletarlivro" modelAttribute="livro">
+                                <input type="hidden" name="id" value="${livro.id}" />
+                                <input class="btn btn-danger devolver-button" type="submit" value="Deletar">
+                            </form:form>
                         </td>
                         <td>
                             <form method="POST" action="livrocontroller">

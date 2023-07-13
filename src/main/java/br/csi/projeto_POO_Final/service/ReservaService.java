@@ -1,10 +1,15 @@
 
 package br.csi.projeto_POO_Final.service;
 
+import br.csi.projeto_POO_Final.dao.LivroDAO;
 import br.csi.projeto_POO_Final.dao.ReservaDAO;
+import br.csi.projeto_POO_Final.model.Livro;
 import br.csi.projeto_POO_Final.model.Reserva;
 import br.csi.projeto_POO_Final.dao.ReservaDAO;
 import br.csi.projeto_POO_Final.model.Reserva;
+import br.csi.projeto_POO_Final.model.ReservaLivro;
+
+import java.util.List;
 
 public class ReservaService {
 
@@ -38,6 +43,11 @@ public class ReservaService {
         reservaDAO.editarReserva(reserva);
         System.out.println("Reserva editada com sucesso: Livro -" + reserva.getLivroid() + "Cliente -" + reserva.getClienteid());
         return true;
+    }
+
+    public List<ReservaLivro> obterReservas() {
+        ReservaDAO reservaDAO = new ReservaDAO();
+        return reservaDAO.getReservas();
     }
 
 }

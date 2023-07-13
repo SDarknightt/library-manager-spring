@@ -1,8 +1,12 @@
 
 package br.csi.projeto_POO_Final.service;
 
+import br.csi.projeto_POO_Final.dao.ClienteDAO;
 import br.csi.projeto_POO_Final.dao.LivroDAO;
+import br.csi.projeto_POO_Final.model.Cliente;
 import br.csi.projeto_POO_Final.model.Livro;
+
+import java.util.List;
 
 public class LivroService {
 
@@ -30,6 +34,10 @@ public class LivroService {
         livroDAO.editarLivro(livro);
         System.out.println("Livro editado com sucesso: " + livro.getNome());
         return true;
+    }
+    public List<Livro> obterLivros() {
+        LivroDAO livroDAO = new LivroDAO();
+        return livroDAO.getLivros();
     }
 
 }

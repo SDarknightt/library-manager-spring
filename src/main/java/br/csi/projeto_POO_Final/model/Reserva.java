@@ -2,9 +2,9 @@ package br.csi.projeto_POO_Final.model;
 
 public class Reserva {
 
-    private int id;
     private int clienteid;
     private int livroid;
+    private int id;
 
     public Reserva(int id, int clienteid, int livroid) {
         this.id = id;

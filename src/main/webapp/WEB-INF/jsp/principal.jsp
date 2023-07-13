@@ -21,10 +21,10 @@
                     <a class="nav-link" aria-current="page" href="/bib/principal/livros/">Livros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bib/principal/livros/">Reservas</a>
+                    <a class="nav-link" href="/bib/principal/reservas/">Reservas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bib/principal/livros/">Clientes</a>
+                    <a class="nav-link" href="/bib/principal/clientes/">Clientes</a>
                 </li>
                 <li class="nav-item">
                     <a  class="nav-link" href="/bib/usuario/logarusuario">Sair</a>
@@ -52,7 +52,7 @@
                             <div class="col-sm-4 mb-3 mb-sm-0">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="/bib/principal/livros/" class="btn btn-info">Reservas</a>
+                                        <a href="/bib/principal/reservas/" class="btn btn-info">Reservas</a>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <a href="/bib/principal/livros/" class="btn btn-info">Clientes</a>
+                                        <a href="/bib/principal/clientes/" class="btn btn-info">Clientes</a>
                                     </div>
                                 </div>
                             </div>
