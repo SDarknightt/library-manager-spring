@@ -24,23 +24,20 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Editar Cliente</h2>
                             <p class="text-white-50 mb-5">Altere o que deseja!</p>
 
-                            <form method="POST" action="clientecontroller">
+                            <form method="POST" action="/bib/principal/clientes/editarcliente">
+                                <input type="hidden" name="id" value="${cliente.id}" >
 
-                                <c:if test="${not empty cliente}">
-                                    <div class="form-outline form-white mb-4">
+                                <div class="form-outline form-white mb-4">
                                         <label for="nome">Nome</label>
-                                        <input type="text" name="nomecliente" id="nome" class="form-control form-control-lg" placeholder="Nome" value="${cliente.getNome()}" required>
+                                        <input type="text" name="nome" id="nome" class="form-control form-control-lg" placeholder="Nome" value="${cliente.nome}" required>
                                     </div>
                                     <div class="form-outline form-white mb-4">
                                         <label for="cpf">CPF:</label>
-                                        <input type="text" name="cpfcliente" id="cpf" class="form-control form-control-lg" placeholder="Nome" value="${cliente.getCpf()}" required>
+                                        <input type="text" name="cpf" id="cpf" class="form-control form-control-lg" placeholder="CPF" value="${cliente.cpf}" required>
                                     </div>
-                                    <input type="hidden" name="idcliente" value="${cliente.getId()}" >
-                                </c:if>
-                                <input type="hidden" name="acao" value="editarcliente">
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Editar</button>
                                 <div>
-                                    <a href="../clientes.jsp" class="text-white-50 fw-bold">Voltar</a>
+                                    <a href="/bib/principal/clientes/visualizarclientes" class="text-white-50 fw-bold">Voltar</a>
                                 </div>
                             </form>
 

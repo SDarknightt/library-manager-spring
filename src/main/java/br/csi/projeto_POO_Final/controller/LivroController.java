@@ -1,13 +1,11 @@
 package br.csi.projeto_POO_Final.controller;
 
+import br.csi.projeto_POO_Final.dao.LivroDAO;
 import br.csi.projeto_POO_Final.model.Livro;
 import br.csi.projeto_POO_Final.service.LivroService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -50,4 +48,27 @@ public class LivroController {
         }
         return redirectView;
     }
+
+    @GetMapping("/editarlivro/{id}")
+    public String editarLivro(@PathVariable int id, Model model) {
+        model.addAttribute("livro", new LivroDAO().getLivro(id));
+        return "editarlivro";
+    }
+
+    @PostMapping("/selecionalivro")
+    public RedirectView selecionaLivro (@ModelAttribute("livro") Livro livro, RedirectAttributes redirectAttributes){
+        RedirectView redirectView = null;
+            redirectView = new RedirectView("/principal/livros/editarlivro/"+livro.getId(), true);
+        return redirectView;
+    }
+
+    @PostMapping("/editarlivro")
+    public RedirectView editarLivro (@ModelAttribute("livro") Livro livro, RedirectAttributes redirectAttributes){
+        RedirectView redirectView = null;
+        if (new LivroService().editarLivro(livro)){
+            redirectView = new RedirectView("/principal/livros/visualizarlivros", true);
+        }
+        return redirectView;
+    }
+
 }

@@ -30,8 +30,7 @@
 
                                 <div class="form-group">
                                     <label for="livro">Livro</label>
-                                    <select id="livro" name="genero" class="form-control">
-                                                <option disabled selected>Selecione um livro</option>
+                                    <select id="livro" name="genero" class="form-control" required>
                                             <option disabled selected>Seleciona um gênero.</option>
                                             <option value="Ação">Ação</option>
                                             <option value="Aventura">Aventura</option>

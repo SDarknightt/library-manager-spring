@@ -23,28 +23,31 @@
               <h2 class="fw-bold mb-2 text-uppercase">Editar Livro</h2>
               <p class="text-white-50 mb-5">Altere o que deseja!</p>
 
-              <form method="POST" action="livrocontroller">
+              <form method="POST" action="/bib/principal/livros/editarlivro">
 
-                <c:if test="${not empty livro}">
-                  <div class="form-outline form-white mb-4">
+                <input type="hidden" name="id"  placeholder="" value="${livro.id}" required>
+
+                <div class="form-outline form-white mb-4">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nomelivro" id="nome" class="form-control form-control-lg" placeholder="Nome" value="${livro.getNome()}" required>
+                    <input type="text" name="nome" id="nome" class="form-control form-control-lg" placeholder="Nome" value="${livro.nome}" required>
                   </div>
                   <div class="form-group">
                     <label for="genero">Gênero</label>
                     <select id="genero" name="genero" class="form-control">
-                      <option value="${livro.getGenero()}">${livro.getGenero()}</option>
+                      <option value="${livro.genero}">${livro.genero}</option>
                       <option value="Ação">Ação</option>
-                      <option value="Suspense">Suspense</option>
+                      <option value="Aventura">Aventura</option>
                       <option value="Romance">Romance</option>
+                      <option value="Ficção Científica">Ficção Científica</option>
+                      <option value="Mistério">Mistério</option>
+                      <option value="Fantasia">Fantasia</option>
+                      <option value="Suspense">Suspense</option>
                     </select>
-                    <input type="hidden" name="idlivro" value="${livro.getId()}" >
                   </div>
-                </c:if>
                 <input type="hidden" name="acao" value="editarlivro">
                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Editar</button>
                 <div>
-                  <a href="livros.jsp" class="text-white-50 fw-bold">Voltar</a>
+                  <a href="/bib/principal/livros/visualizarlivros" class="text-white-50 fw-bold">Voltar</a>
                 </div>
               </form>
 

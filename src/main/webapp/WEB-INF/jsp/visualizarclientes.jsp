@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg fixed-top bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/bib/principal/">Biblioteca</a>
+    <a class="navbar-brand" href="/bib/usuario/principal/">Biblioteca</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -62,7 +62,7 @@
               </form>
             </td>
             <td>
-              <form method="POST" action="/bib/principal/clientes/deletarcliente">
+              <form method="POST" action="/bib/principal/clientes/selecionacliente">
                 <div class="form-group">
                   <input type="hidden" name="id" class="form-control" value="${cliente.getId()}">
                 </div>
