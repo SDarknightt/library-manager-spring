@@ -6,6 +6,7 @@
 <head>
   <title>Visualizar Reservas</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 <body>
 
 <nav class="navbar navbar-expand-lg fixed-top bg-dark">

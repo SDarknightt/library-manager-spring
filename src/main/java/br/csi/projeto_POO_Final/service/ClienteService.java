@@ -35,15 +35,15 @@ public class ClienteService {
         ClienteDAO clienteDAO = new ClienteDAO();
         // Deleta o livro do banco de dados
         clienteDAO.deletarCliente(cliente);
-        System.out.println("Livro delatado com sucesso: " + cliente.getNome());
         return true;
     }
 
     public boolean editarCliente(Cliente cliente) {
         ClienteDAO clienteDAO = new ClienteDAO();
         // Edita o cliente do banco de dados
-        clienteDAO.editarCliente(cliente);
-        System.out.println("Cliente editado com sucesso: " + cliente.getNome());
+        if (clienteDAO.editarCliente(cliente)!= null){
+            System.out.println("Cliente editado com sucesso: " + cliente.getNome());
+        }
         return true;
     }
     public List<Cliente> obterClientes() {

@@ -85,10 +85,9 @@ public class ClienteDAO {//aqui será feito o CRUD
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    public void editarCliente(Cliente cliente) {
+    public Object editarCliente(Cliente cliente) {
         try (Connection con = new ConectaDB().getConexao()) {
             String sql = "UPDATE cliente " +
                     "SET nomecliente = ?, cpfcliente = ? " +
@@ -101,7 +100,9 @@ public class ClienteDAO {//aqui será feito o CRUD
             pt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
+        return cliente;
     }
 
     public Cliente getCliente( int idCLiente ){

@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastrar Usuário</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 
@@ -28,7 +29,7 @@
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
-                                    <input type="text" name="cpf" class="form-control form-control-lg" placeholder="CPF" required>
+                                    <input type="text" name="cpf" class="form-control form-control-lg" placeholder="CPF" oninput="formatarCPF(this)"  maxlength="14" required>
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
@@ -39,7 +40,7 @@
                                     <input type="password" name="senha" class="form-control form-control-lg" placeholder="Senha"/>
                                 </div>
 
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Entrar</button>
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Cadastrar</button>
                             </form>
 
                             <div>
@@ -56,6 +57,15 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function formatarCPF(campo) {
+        var valor = campo.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+        valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Insere o primeiro ponto após 3 dígitos
+        valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Insere o segundo ponto após 3 dígitos
+        valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); // Insere o traço antes dos últimos 2 dígitos
+        campo.value = valor;
+    }
+</script>
 </body>
 </html>
 
