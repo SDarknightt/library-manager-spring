@@ -1,5 +1,7 @@
 package br.csi.projeto_POO_Final.controller;
 
+import br.csi.projeto_POO_Final.dao.ClienteDAO;
+import br.csi.projeto_POO_Final.dao.ReservaDAO;
 import br.csi.projeto_POO_Final.model.Cliente;
 import br.csi.projeto_POO_Final.model.Livro;
 import br.csi.projeto_POO_Final.model.Reserva;
@@ -53,6 +55,35 @@ public class ReservaController {
     public RedirectView deletarreserva (@ModelAttribute("reserva") ReservaLivro reservaLivro, RedirectAttributes redirectAttributes){
         RedirectView redirectView = null;
         if (new ReservaService().devolverLivro(reservaLivro)){
+            redirectView = new RedirectView("/principal/reservas/visualizarreservas", true);
+        }
+        return redirectView;
+    }
+
+    @GetMapping("/editarreserva/{id}")
+    public String editarReserva(@PathVariable int id, Model model) {
+        System.out.println("ID Editar Reserva: " + id);
+        model.addAttribute("reserva", new ReservaDAO().getReserva(id));
+        List<Livro> livros = new LivroService().obterLivros(); // Recupera a lista de clientes existentes
+        model.addAttribute("livros", livros); // Adiciona a lista de clientes ao modelo
+        return "editarreserva";
+    }
+
+    //seleciona a partir do form visualizar clientes
+    @PostMapping("/selecionareserva")
+    public RedirectView selecionaReserva (@ModelAttribute("reserva") ReservaLivro reservaLivro, RedirectAttributes redirectAttributes){
+        System.out.println("Reserva selecionada ID:" + reservaLivro.getIdreserva());
+        RedirectView redirectView = null;
+        redirectView = new RedirectView("/principal/reservas/editarreserva/"+reservaLivro.getIdreserva(), true);
+        return redirectView;
+    }
+
+    //pega as alterações e efetua no banco
+    @PostMapping("/editarreserva")
+    public RedirectView editarCliente (@ModelAttribute("reserva") ReservaLivro reservaLivro, RedirectAttributes redirectAttributes){
+        System.out.println("Entrou no editar reserva!!!!!!");
+        RedirectView redirectView = null;
+        if (new ReservaService().editarReserva(reservaLivro)){
             redirectView = new RedirectView("/principal/reservas/visualizarreservas", true);
         }
         return redirectView;

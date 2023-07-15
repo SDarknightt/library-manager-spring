@@ -24,26 +24,25 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Alterar Reserva</h2>
                             <p class="text-white-50 mb-5">Selecione outro livro!</p>
 
-                            <form method="POST" action="reservacontroller">
+                            <form method="POST" action="/bib/principal/reservas/editarreserva">
 
-                                    <c:if test="${not empty livros }">
-                                        <div class="form-group">
-                                            <label for="livro">Reserva</label>
-                                            <select id="livro" name="idlivro" class="form-control" >
-                                                <option>Altere o livro</option>
-                                                <c:forEach items="${livros}" var="livro">
-                                                    <option value="${livro.getId()}"> ${livro.getNome()}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-                                    </c:if>
-                                <h1>${editareserva.getIdreserva}</h1>
+                                <input type="hidden" name="idreserva" value="${reserva.idreserva}" required>
 
-                                <input type="hidden" name="idreserva" value="31">
-                                <input type="hidden" name="acao" value="editarreserva">
+                                <c:if test="${not empty livros}">
+                                    <div class="form-group">
+                                        <label for="livro">Livro</label>
+                                        <select id="livro" name="livroid" class="form-control">
+                                            <option value="${reserva.livroid}">${reserva.nomelivro} </option>
+                                            <c:forEach items="${livros}" var="livro">
+                                                <option value="${livro.getId()}">${livro.getNome()}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </c:if>
+
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Editar</button>
                                 <div>
-                                    <a href="../reservas.jsp" class="text-white-50 fw-bold">Voltar</a>
+                                    <a href="/bib/principal/reservas/visualizarreservas" class="text-white-50 fw-bold">Voltar</a>
                                 </div>
                             </form>
 

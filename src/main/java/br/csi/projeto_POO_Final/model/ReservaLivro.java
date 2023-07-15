@@ -2,7 +2,6 @@ package br.csi.projeto_POO_Final.model;
 
 public class ReservaLivro {
 
-
     private int clienteid;
     private int livroid;
     private String nomecliente;

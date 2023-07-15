@@ -102,13 +102,13 @@ public class ReservaDAO {
     }
 
 
-    public void editarReserva(Reserva reserva) {
+    public void editarReserva(ReservaLivro reservaLivro) {
         try (Connection con = new ConectaDB().getConexao()) {
             //efetua a reserva
             String sql = "UPDATE reserva_livro SET livroid = ? WHERE idreserva = ?;";
             PreparedStatement pt = con.prepareStatement(sql);
-            pt.setInt(1, reserva.getLivroid());
-            pt.setInt(2, reserva.getId());
+            pt.setInt(1, reservaLivro.getLivroid());
+            pt.setInt(2, reservaLivro.getIdreserva());
             pt.executeUpdate();
 
         } catch (Exception e) {

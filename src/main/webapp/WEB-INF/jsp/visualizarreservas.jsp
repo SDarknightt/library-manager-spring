@@ -6,8 +6,6 @@
 <head>
   <title>Visualizar Reservas</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <c:url var="cssPath" value="/css/style.css" />
-  <c:import url="${cssPath}" />
 <body>
 
 <nav class="navbar navbar-expand-lg fixed-top bg-dark">
@@ -63,7 +61,7 @@
               </form>
             </td>
             <td>
-              <form method="POST" action="/bib/principal/reservas/deletarreserva">
+              <form method="POST" action="/bib/principal/reservas/selecionareserva">
                 <div class="form-group">
                   <input type="hidden" name="idreserva" class="form-control" value="${reserva.getIdreserva()}">
                 </div>

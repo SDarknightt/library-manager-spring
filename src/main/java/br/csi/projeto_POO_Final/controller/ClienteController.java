@@ -58,8 +58,6 @@ public class ClienteController {
     public String editarCliente(@PathVariable int id, Model model) {
         System.out.println("ID Editar Cliente: " + id);
         model.addAttribute("cliente", new ClienteDAO().getCliente(id));
-        Cliente cliente =  new ClienteDAO().getCliente(id);
-        System.out.println("Informações do cliente: " + cliente.getNome() + cliente.getCpf() );
 
         return "editarcliente";
     }
