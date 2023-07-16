@@ -2,8 +2,8 @@
 
 O Sistema de Gerenciamento de Biblioteca é uma aplicação desenvolvida para o controle de usuários, clientes, livros e reservas em uma biblioteca. O sistema possui as seguintes funcionalidades:
 
-## Funcionalidades
-Usuário
+#  Funcionalidades
+## Usuário
 Cadastro: Permite o registro de novos usuários no sistema.\
 Login: Permite que os usuários façam login na aplicação para acessar as funcionalidades.
 
