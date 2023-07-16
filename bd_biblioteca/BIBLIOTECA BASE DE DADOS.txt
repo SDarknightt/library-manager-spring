@@ -1,0 +1,32 @@
+SAMUEL DIAS OLIVEIRA
+	
+BASE DE DADOS BIBLIOTECA
+
+CREATE TABLE usuario (
+  idusuario SERIAL PRIMARY KEY,
+  nomeusuario VARCHAR(50),
+  cpfusuario VARCHAR(14),
+  login VARCHAR(50),
+  senha VARCHAR(50)
+);
+
+CREATE TABLE cliente (
+  idcliente SERIAL PRIMARY KEY,
+  nomecliente VARCHAR(50),
+  cpfcliente VARCHAR(14)
+);
+
+CREATE TABLE livro (
+  idlivro SERIAL PRIMARY KEY,
+  nomelivro VARCHAR(50),
+  genero VARCHAR(50),
+  reservado BOOLEAN DEFAULT false
+);
+
+CREATE TABLE reserva_livro (
+  idreserva SERIAL PRIMARY KEY,
+  clienteid INTEGER,
+  livroid INTEGER,
+  FOREIGN KEY (clienteid) REFERENCES cliente(idcliente),
+  FOREIGN KEY (livroid) REFERENCES livro(idlivro)
+);

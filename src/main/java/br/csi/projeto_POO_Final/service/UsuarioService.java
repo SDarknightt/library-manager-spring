@@ -6,21 +6,17 @@ import org.springframework.stereotype.Service;
 
 
 public class UsuarioService {
-/* public boolean verificarLoginExistente(String login) {
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        return usuarioDAO.verificarLoginExistente();
-    }*/
 
 
     public boolean cadastrarUsuario(Usuario usuario) {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
         // Verificar se o login já está em uso
-        /*boolean loginExistente = verificarLoginExistente(usuario.getLogin());
+        boolean loginExistente = usuarioDAO.verificarLoginExistente(usuario);
         if (loginExistente) {
             System.out.println("Login já está em uso: " + usuario.getLogin());
             return false;
-        }*/
+        }
 
         // Adicionar o usuário no banco de dados
         usuarioDAO.adicionarUsuario(usuario);

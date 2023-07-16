@@ -26,11 +26,11 @@
 
                             <form method="POST" action="/bib/principal/livros/registrarlivro">
                                 <div class="form-outline form-white mb-4">
-                                    <input type="text" name="nome" class="form-control form-control-lg" placeholder="Nome" required>
+                                    <input type="text" id="nome" name="nome" class="form-control form-control-lg" placeholder="Nome" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="livro">Livro</label>
+                                    <label for="livro">Gênero</label>
                                     <select id="livro" name="genero" class="form-control" required>
                                             <option disabled selected>Seleciona um gênero.</option>
                                             <option value="Ação">Ação</option>
